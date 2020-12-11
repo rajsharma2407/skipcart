@@ -9,6 +9,8 @@ const passport = require('passport')
 const User = require('./models/user')
 const fileUpload = require('express-fileUpload');
 require('./passport-config')
+var PORT = process.env.PORT || 8080;
+
 mongoose.connect('mongodb+srv://mongodbraj:mongodbraj@cluster0.ahqpb.mongodb.net/skipcart',{useNewUrlParser: true, 
 useCreateIndex: true, 
 useUnifiedTopology: true, 
@@ -52,4 +54,4 @@ app.use((req,res,next)=>{
 })
 app.use('/',myRoutes);
 app.use('/admin',adminRoutes);
-app.listen(process.env.PORT,console.log(`server is started at port ${process.env.PORT}`))
+app.listen(PORT,console.log(`server is started at port ${PORT}`))
