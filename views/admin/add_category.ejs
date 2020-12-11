@@ -1,0 +1,14 @@
+<%- include('admin_header') %> 
+    <a href="/admin" class="btn btn-outline-primary mt-5 ml-5">Back</a>
+    <form action="/admin/add-category" method="POST" style="width:80%;" class="d-block mx-auto mt-5">
+        <div class="form-group">
+            <label for="categoryTitle">Category Title</label>
+            <input type="text" name="title" id="categoryTitle" class="form-control">
+        </div>
+
+        <div class="text-right">
+            <input type="submit" value="Add Category" class="btn btn-success">
+        </div>
+    </form>
+
+<%- include('admin_footer') %> 

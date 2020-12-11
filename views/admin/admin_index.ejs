@@ -1,0 +1,32 @@
+<%- include('admin_header') %> 
+
+<div class="img-car">
+    <img src="/images/image_carousel/apples.jpg" alt="">
+    <span class="arrow arrow-l" id="arrow-l">&#8592;</span>
+    <span class="arrow arrow-r" id="arrow-r">&#8594;</span>
+</div>
+
+<div class="myContainer">
+    <% products.forEach(product=>{ %>
+        <div class="card">
+            <div class="img-hider">
+                <a href="/product/<%= product._id %>  ">
+                <img src="/product_images/<%= product._id %>/<%= product.productImage %>" alt="" class="scalable-image">
+                       
+        </a>
+            </div>
+            <div class="body">
+                <div class="card-title">
+                     <span><%= product.productName %></span>
+                     <span><%= product.productPrice %> Rs</span>
+                     </div>
+                <div class="card-text">
+                    <a href="/product/<%= product._id %>  "><button class="btn btn-primary">Buy Now</button></a>
+                </div>   
+            </div>
+     
+        </div>
+        <% }) %> 
+</div>
+
+<%- include('admin_footer') %> 

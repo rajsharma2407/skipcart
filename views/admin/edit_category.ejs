@@ -1,0 +1,14 @@
+<%- include('admin_header') %> 
+    <a href="/admin/all-category" class="btn btn-outline-primary mt-5 ml-5">Back</a>
+    <form action="/admin/edit-category/<%= category._id %> " method="POST" style="width:80%;" class="d-block mx-auto mt-5">
+        <div class="form-group">
+            <label for="categoryTitle">Category Title</label>
+            <input type="text" name="title" id="categoryTitle" class="form-control" value="<%= category.categoryName %>">
+        </div>
+
+        <div class="text-right">
+            <input type="submit" value="Edit Product" class="btn btn-success">
+        </div>
+    </form>
+
+<%- include('admin_footer') %> 

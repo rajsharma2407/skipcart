@@ -1,0 +1,37 @@
+<%- include('admin_header') %> 
+    <a href="/admin/all-products" class="btn btn-outline-primary mt-5 ml-5">Back</a>
+    <form action="/admin/edit-product/<%= product._id %> " method="POST" style="width:80%;" class="d-block mx-auto mt-5" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="productName">Product Name</label>
+            <input type="text" name="productName" id="productName" class="form-control" value="<%= product.productName %>">
+        </div>
+        <div class="form-group">
+            <label for="productCategory">Product Category</label>
+            <select name="productCategory" id="productCategory" class="form-control">
+                <option value="No category selected">Select a category</option>
+                <% categories.forEach(category=>{ %> 
+                    
+                <option value="<%= category.categorySlug %>"
+                    <% if(product.productCategory == category.categorySlug){ %> 
+                        selected="selected"
+                    <% } %> 
+                    ><%= category.categoryName %> </option>
+                <% }) %> 
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="productPrice">Product Price</label>
+            <input type="text" name="productPrice" id="productPrice" class="form-control"value="<%= product.productPrice %>">
+        </div>
+        
+        <div class="form-group">
+            <label for="productImage">Product Image</label><br>
+            <input type="file" name="productImage" id="productImage" class="">
+        </div>
+    
+        <div class="text-right">
+            <input type="submit" value="Edit Product" class="btn btn-success">
+        </div>
+    </form>
+
+<%- include('admin_footer') %> 
