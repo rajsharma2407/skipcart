@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const myRoutes = require('./routes/myRoutes')
@@ -10,17 +11,18 @@ const User = require('./models/user')
 const fileUpload = require('express-fileupload');
 require('./passport-config')
 var PORT = process.env.PORT || 8080;
+ 
+ mongoose.connect('mongodb+srv://mongodbraj:mongodbraj@cluster0.rrtr0.mongodb.net/skipcart?retryWrites=true&w=majority',{useNewUrlParser: true, 
+ useCreateIndex: true, 
+ useUnifiedTopology: true, 
+ useFindAndModify: false},err=>{
+     if(err) console.log(err)
+ });
 
-mongoose.connect('mongodb+srv://mongodbraj:mongodbraj@cluster0.ahqpb.mongodb.net/skipcart',{useNewUrlParser: true, 
-useCreateIndex: true, 
-useUnifiedTopology: true, 
-useFindAndModify: false});
+ var db = mongoose.connection;
+ db.once('open',()=>console.log('connection done'));
+ db.on('error',console.error.bind(console,'mongoose error'))
 
-var db = mongoose.connection;
-db.once('open',()=>console.log('connection done'));
-db.on('error',console.error.bind(console,'mongoose error'))
-
-require('dotenv').config();
 
 app.set('view engine','ejs');
 
@@ -29,7 +31,7 @@ app.use(express.urlencoded({extended:false}));
 
 app.use(fileUpload());
 app.use(session({
-    secret:process.env.SECRET,
+    secret:'SSSSHHhhhhh',
     resave:false,
     saveUninitialized:false,
     // cookie:{
@@ -49,8 +51,7 @@ app.get('*',(req,res,next)=>{
 app.use(require('connect-flash')());
 app.use((req,res,next)=>{
     res.locals.messages = require('express-messages')(req,res);
-    console.log(res.locals.messages)
-    next();
+        next();
 })
 app.use('/',myRoutes);
 app.use('/admin',adminRoutes);

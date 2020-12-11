@@ -5,9 +5,9 @@ const router = express.Router();
 const User = require('../models/user');
 const Product = require('../models/products');
 
-router.get('/',(req,res)=>{
-    Product.find({},(err,product)=>{
-        res.render('index',{products:product});
+router.get('/',async (req,res)=>{
+     Product.find({},async (err,product)=>{
+         res.render('index',{products:product});
     })
 
 })
