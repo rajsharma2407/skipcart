@@ -7,7 +7,7 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const passport = require('passport')    
 const User = require('./models/user')
-const fileUpload = require('express-fileUpload');
+const fileUpload = require('express-fileupload');
 require('./passport-config')
 var PORT = process.env.PORT || 8080;
 
