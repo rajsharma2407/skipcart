@@ -1,2 +1,7 @@
 node_modules
 .env
+firebase.json
+.firebaseerc
+.firebase/hosting.cHVibGlj.cache
+public/index.html
+.github/workflows/firebase-hosting-pull-request.yml
