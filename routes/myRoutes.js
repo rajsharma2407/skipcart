@@ -62,6 +62,14 @@ router.post('/login',passport.authenticate('local',{
     }
 })
 
+router.get('/google',passport.authenticate('google',{
+    scope:['profile','email']
+}))
+
+router.get('/google-login',passport,authenticate('google',{failureRedirect:'/login',failureFlash:true,successFlash:true}),(req,res)=>{
+    res.redirect('/');
+})
+
 router.get('/logout',(req,res)=>{
     req.flash('success','Logout Successfull')
     req.logout();

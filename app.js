@@ -10,6 +10,7 @@ const passport = require('passport')
 const User = require('./models/user')
 const fileUpload = require('express-fileupload');
 require('./passport-config')
+require('./google-config')
 var PORT = process.env.PORT || 8080;
  
  mongoose.connect('mongodb+srv://mongodbraj:mongodbraj@cluster0.rrtr0.mongodb.net/skipcart?retryWrites=true&w=majority',{useNewUrlParser: true, 
