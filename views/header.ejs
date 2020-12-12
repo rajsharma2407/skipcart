@@ -43,8 +43,7 @@
               <% if(user != null){ %> 
                 <% if(user.name) {%> 
                 <a href="/logout" class="nav-link active" ><%= user.name %>(Logout)</a>
-                <% } %> 
-                <% else if(user.displayName) {%> 
+                <% } else if(user.displayName) {%> 
                   <a href="/logout" class="nav-link active" ><%= user.name %>(Logout)</a>
                   <% } %> 
                 <% }else {%> 
