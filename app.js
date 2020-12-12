@@ -13,12 +13,13 @@ require('./passport-config')
 require('./google-config')
 var PORT = process.env.PORT || 8080;
  
- mongoose.connect('mongodb+srv://mongodbraj:mongodbraj@cluster0.rrtr0.mongodb.net/skipcart?retryWrites=true&w=majority',{useNewUrlParser: true, 
+ mongoose.connect('mongodb+srv://mongodbraj:mongodbraj@cluster0.rrtr0.mongodb.net/skipcart'
+ ,{useNewUrlParser: true, 
  useCreateIndex: true, 
  useUnifiedTopology: true, 
  useFindAndModify: false},err=>{
      if(err) console.log(err)
- });
+ })
 
  var db = mongoose.connection;
  db.once('open',()=>console.log('connection done'));
