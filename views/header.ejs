@@ -41,9 +41,9 @@
             
             <li class="nav-item">
               <% if(user != null){ %> 
-                <% if(user.name) {%> 
-                <a href="/logout" class="nav-link active" ><%= user.name %>(Logout)</a>
-                <% } else if(user.displayName) {%> 
+                <% if(user.displayName) {%> 
+                <a href="/logout" class="nav-link active" ><%= user.displayName %>(Logout)</a>
+                <% } else if(user.name) {%> 
                   <a href="/logout" class="nav-link active" ><%= user.name %>(LogOut)</a>
                   <% } %> 
                 <% }else {%> 
