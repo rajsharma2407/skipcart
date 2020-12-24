@@ -12,7 +12,7 @@ require('./passport-config')
 require('./google-config')
 var PORT = process.env.PORT || 8080;
  
- mongoose.connect('mongodb+srv://mongodbraj:mongodbraj@cluster0.rrtr0.mongodb.net/skipcart'
+ mongoose.connect('paste your mongodb srv'
  ,{useNewUrlParser: true, 
  useCreateIndex: true, 
  useUnifiedTopology: true, 
