@@ -1,21 +1,25 @@
-<%- include('header') %> 
-<div class="register-form">
+<%- include('header') %>
+    <div class="register-form">
 
-    <form action="/register" method="POST" class="m-auto">
-        <div class="form-group">
-            <label for="name">Enter Name</label>
-            <input type="text" name="name" id="name" class="form-control" value="<%= name %>" required>
-        </div>
-          <div class="form-group">
-            <label for="email">Enter Email</label>
-            <input type="email" name="email" id="email" class="form-control" value="<%= email %>"required>
-        </div>
-        <div class="form-group">
-            <label for="password">Enter Password</label>
-            <input type="password" name="password" id="password" class="form-control" value="<%= password %>"required>
-        </div>
-        <input type="submit" value="Register" class="btn btn-outline-secondary">
-    </form>
-</div>
+        <form action="/register" method="POST" class="m-auto">
+            <div class="form-group">
+                <label for="name">Enter Name</label>
+                <input type="text" name="name" id="name" class="form-control" value="<%= name %>" required
+                    placeholder="John Doe">
+            </div>
+            <div class="form-group">
+                <label for="email">Enter Email</label>
+                <input type="email" name="email" id="email" class="form-control" value="<%= email %>" required
+                    placeholder="xyz@email.com">
+            </div>
+            <div class="form-group">
+                <label for="password">Enter Password</label>
+                <input type="password" name="password" id="password" class="form-control" value="<%= password %>"
+                    required pattern=".{8,}" title="Minimum 8 characters are required"
+                    placeholder="Minimum 8 characters">
+            </div>
+            <input type="submit" value="Register" class="btn btn-outline-secondary">
+        </form>
+    </div>
 
-<%- include('footer') %> 
+    <%- include('footer') %>
