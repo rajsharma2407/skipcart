@@ -7,7 +7,11 @@ const Category = require("../models/categories");
 const Cart = require("../models/cart");
 
 const checkAdmin = (req, res, next) => {
-  if (process.env.SESSION_NAME == "admin") next();
+  const str = process.env.SESSION_NAME;
+  if (str != undefined && str == "admin" || str == "admin@admin.com") 
+  {
+    next();
+  }
   else {
     res.redirect("/");
   }
@@ -156,7 +160,7 @@ router.get("/delete-product/:id", (req, res) => {
     if (err) console.log(err);
     var file = "public/product_images/" + id + "/" + product.productImage;
     var path = "public/product_images/" + id;
-    fs.unlinkSync(file);
+    // fs.unlinkSync(file);
     fs.rmdir(path, (err) => {
       if (err) console.log(err);
     });

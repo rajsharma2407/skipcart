@@ -76,7 +76,7 @@
 
 .myContainer {
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   padding: 10px 0;
@@ -86,7 +86,7 @@
   padding: 10px;
   box-shadow: 0 0 6px black;
   overflow: hidden;
-  width: 24%;
+  width: 20%;
 }
 .img-hider {
   height: 200px;
@@ -97,10 +97,10 @@
   margin: 20px;
 }
 .scalable-image:hover {
-  transition: 0.3s ease all;
-  transform: scale(1.7);
+  transition: 0.4s ease all;
+  transform: scale(1.1);
 }
-.card-title {
+.card-title , .card-text{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -119,14 +119,14 @@
 }
 @media only screen and (max-width: 1440px) {
   .card {
-    width: 31.5%;
-    margin: 10px auto;
+    width: 21.5%;
+    margin: 10px ;
   }
 }
 @media only screen and (max-width: 1000px) {
   .card {
-    width: 47%;
-    margin: 10px auto;
+    width: 25%;
+    margin: 10px;
   }
   .flex {
     flex-basis: 100%;
@@ -146,7 +146,7 @@
 
 @media only screen and (max-width: 550px) {
   .card {
-    width: 90%;
+    width: 70%;
     margin: 15px auto 20px auto;
   }
   .img-car {

@@ -21,7 +21,7 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/register", (req, res) => {
-  console.log(req.session);
+  // console.log(req.session);
   res.render("register", { name: "", email: "", password: "" });
 });
 
@@ -81,7 +81,7 @@ router.post(
   }),
   (req, res) => {
     process.env.SESSION_NAME = req.body.email;
-    if (req.body.email === "admin") {
+    if (req.body.email === "admin" || req.body.email === "admin@admin.com") {
       res.redirect("/admin");
     } else {
       res.redirect("/");

@@ -11,7 +11,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="/">Navbar</a>
+        <a class="navbar-brand" href="/">Skipcart</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -36,9 +36,15 @@
           </ul>
           <form class="form-inline my-2 my-lg-0 mr-auto" id="myForm">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" style="width:450px;" id="search">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+            <!-- <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button> -->
           </form>
           <ul class="navbar-nav">
+            
+        <% if(cart != null) { %>
+          <li class="nav-item">
+            <a href="/cart" class="nav-link active">Cart(<%= cart.length %>)</a>
+          </li>
+          <% } %>
             <li class="nav-item">
               <% if(user != null){ %> 
                 <a href="/logout" class="nav-link active" ><%= user.name %>(Logout)</a>

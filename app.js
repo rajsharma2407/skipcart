@@ -42,28 +42,33 @@ app.use(
   session({
     secret: "SSSSHHhhhhh",
     resave: false,
-    saveUninitialized: false,
-    // cookie: {
-    //   secure: true,
-    // },
+    saveUninitialized: false
   })
 );
 app.locals.user = null;
+app.locals.cart = null;
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get("*", (req, res, next) => {
-  // res.locals.user = req.user;
-  res.locals.cartLength = 0;
+app.use(async (req, res, next) => {
+  console.log(req);
+  if(!res.locals.user){
+    res.locals.user = req.user;
+  }else{
+    console.log(res.locals.user);
+  }
   if (req.user) {
-    // req.session.id = req.user._id;
-    Cart.find({ userId: req.user._id }, (err, cart) => {
+    if(res.locals.cart == null){
+      res.locals.cart = {
+        length: 0,
+        items: []
+      };
+    }
+    await Cart.findOne({ _id: req.user._id }, (err, cart) => {
       if (err) throw err;
-      if (cart.length) {
-        // cart[0].arrCart.map((arr) => {
-        console.log(cart);
-        res.locals.cartLength = cart[0].arrCart.length;
-        // });
+      console.log(cart);
+      if (cart.arrCart) {
+        res.locals.cart.length = cart.arrCart.length;
       }
     });
   }

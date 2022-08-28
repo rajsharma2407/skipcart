@@ -55,8 +55,9 @@
                         <a href="/product/<%= product._id %>" class="mr-auto"><button class="btn btn-primary">View
                                 product</button></a>
                         <!-- <a href="/add-to-cart/<#%= product._id %>"> -->
-                        <button class="btn btn-success" onclick="addCart('<%=product._id %>')">Add to
-                            cart</button>
+                            <% if(cart != null) { %>
+                                <button class="btn btn-success" onclick="addCart('<%=product._id %>')">Add to cart</button>
+                            <% } %>
                         <!-- </a> -->
                     </div>
                 </div>
@@ -64,6 +65,8 @@
             </div>
             <% }) %>
     <% } %>
+
+    <h3 class="nothingDiv" style="text-align: center;">Match not found</h3>
     </div>
 
     <%- include('footer') %>
