@@ -12,7 +12,7 @@ const fileUpload = require("express-fileupload");
 const Cart = require("./models/cart");
 require("./passport-config");
 require("./google-config");
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3000;
 
 mongoose.connect(
   "mongodb+srv://mongodbraj:mongodbraj@cluster0.rrtr0.mongodb.net/skipcart?retryWrites=true&w=majority",
