@@ -12,10 +12,11 @@ const fileUpload = require("express-fileupload");
 const Cart = require("./models/cart");
 require("./passport-config");
 require("./google-config");
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT;
+var MONGODB_URI = process.env.MONGODB_URI;
 
 mongoose.connect(
-  "mongodb+srv://mongodbraj:mongodbraj@cluster0.rrtr0.mongodb.net/skipcart?retryWrites=true&w=majority",
+  MONGODB_URI,
   {
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -40,7 +41,7 @@ app.use(express.json());
 app.use(fileUpload());
 app.use(
   session({
-    secret: "SSSSHHhhhhh",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false
   })
