@@ -3,8 +3,8 @@ version: 0.2
 phases:
   install:
     commands:
-        - yum update
-        - yum install docker
+        - sudo yum update
+        - sudo yum install docker
         - npm install
  
   build:
