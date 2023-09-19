@@ -3,14 +3,15 @@ version: 0.2
 phases:
   install:
     commands:
-        - echo Installing dependencies...
+        - yum update
+        - yum install docker
         - npm install
  
   build:
     commands:
         - echo Build started on `date`
         - echo Compiling the Node.js code...
-        - zip skipcart.zip *
+        - docker build -t skipcart .
  
 artifacts:
   files:
